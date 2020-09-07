@@ -7,15 +7,12 @@ interface CatalogItemProps {
     product: IProduct
 }
 
-
-
 const CatalogItem: React.FC<CatalogItemProps> = ({product}) => {
     const dispatch = useDispatch();
 
     const hasFailedStockCheck = useSelector<IState, boolean>(state=>{
         return state.cart.failedStockCheck.includes(product.id)
     });
-
 
     const handleAddProductToCart = useCallback(()=>{
         dispatch(addProductToCartRequest(product));
