@@ -10,7 +10,7 @@ export function addProductToCartRequest(product:IProduct){
 }
 export function addProductToCartSuccess(product:IProduct){
     return {
-        type: 'ADD_PRODUCT_TO_CART_SUCCCESS',
+        type: 'ADD_PRODUCT_TO_CART_SUCCESS',
         payload: {
             product,
         }
