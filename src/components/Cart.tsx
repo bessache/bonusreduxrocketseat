@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { IState } from '../store';
 import { ICartItem, IProduct } from '../store/modules/cart/types';
 import {removeProductToCartRequest, removeProductToCartSuccess}from '../store/modules/cart/actions';
+import RemoveButtonItem from './RemoveButton';
+
 
 // interface ICartItemProps {
 //     product: IProduct;
@@ -12,9 +14,9 @@ const Cart: React.FC = () => {
     const cart = useSelector<IState, ICartItem[]>(state=> state.cart.items)
     const dispatch= useDispatch();
     
-    const handleRemoveProductToCart = useCallback(()=>{
-        dispatch(removeProductToCartSuccess(product));
-    },[dispatch, product]);
+    // const handleRemoveProductToCart = useCallback(()=>{
+    //     dispatch(removeProductToCartSuccess(product));
+    // },[dispatch, product]);
     
     return (
         <table>
@@ -34,7 +36,7 @@ const Cart: React.FC = () => {
                             <td>{item.product.price}</td>
                             <td>{item.quantity}</td>
                             <td>{(item.product.price * item.quantity).toFixed(2)}</td>
-                            <button>Remover</button>
+                            <RemoveButtonItem key={item.product.id} product={item.product} />
                         </div>
                     </tr>
                 ))}
