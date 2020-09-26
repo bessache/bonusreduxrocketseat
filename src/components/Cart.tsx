@@ -4,6 +4,8 @@ import { IState } from '../store';
 import { ICartItem, IProduct } from '../store/modules/cart/types';
 import {removeProductToCartRequest, removeProductToCartSuccess}from '../store/modules/cart/actions';
 import RemoveButtonItem from './RemoveButton';
+import IncrementItem from './IncrementButton';
+
 
 
 // interface ICartItemProps {
@@ -31,13 +33,12 @@ const Cart: React.FC = () => {
             <tbody>
                 {cart.map(item=>(
                     <tr key={item.product.id}>
-                        <div >
-                            <td>{item.product.title}</td>
-                            <td>{item.product.price}</td>
-                            <td>{item.quantity}</td>
-                            <td>{(item.product.price * item.quantity).toFixed(2)}</td>
-                            <RemoveButtonItem key={item.product.id} product={item.product} />
-                        </div>
+                        <td>{item.product.title}</td>
+                        <td>{item.product.price}</td>
+                        <td>{item.quantity}</td>
+                        <td>{(item.product.price * item.quantity).toFixed(2)}</td>
+                        <RemoveButtonItem  product={item.product} />
+                        <IncrementItem  product = {item.product} />
                     </tr>
                 ))}
             </tbody>
