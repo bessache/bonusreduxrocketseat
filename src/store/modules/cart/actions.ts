@@ -24,3 +24,27 @@ export function addProductToCartFailure(productId:number){
         }
     };
 }
+export function removeProductToCartRequest(product:IProduct){
+    return {
+        type: ActionTypes.removeProductToCartRequest,
+        payload: {
+            product,
+        }
+    };
+}
+export function removeProductToCartSuccess(product:IProduct){
+    return {
+        type: ActionTypes.removeProductToCartSuccess,
+        payload: {
+            product,
+        }
+    };
+}
+export function removeProductToCartFailure(productId:number){
+    return {
+        type: ActionTypes.removeProductToCartFailure,
+        payload: {
+            productId,
+        }
+    };
+}
